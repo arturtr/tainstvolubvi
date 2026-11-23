@@ -1,7 +1,7 @@
 // Shared redirect: tags the visit with the page's QR source, counts it, then leaves for Taplink.
 (function () {
   var TARGET = "https://taplink.cc/tainstvolubvi";
-  var COUNTER = 0; // Yandex Metrika counter id; 0 disables counting
+  var COUNTER = 114580701; // Yandex Metrika counter id; 0 disables counting
 
   var source = document.documentElement.getAttribute("data-source");
   var query = new URLSearchParams(location.search);
@@ -23,8 +23,8 @@
   window.ym.l = Date.now();
   var tag = document.createElement("script");
   tag.async = true;
-  tag.src = "https://mc.yandex.ru/metrika/tag.js";
+  tag.src = "https://mc.yandex.ru/metrika/tag.js?id=" + COUNTER;
   document.head.appendChild(tag);
-  ym(COUNTER, "init", { defer: true, clickmap: false, trackLinks: false, webvisor: false });
+  ym(COUNTER, "init", { defer: true, ssr: true, clickmap: false, trackLinks: false, webvisor: false });
   ym(COUNTER, "hit", location.href, { title: document.title, callback: leave });
 })();
