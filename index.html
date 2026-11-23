@@ -3,12 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Приход Екатерины Арской</title>
+<meta name="robots" content="noindex">
+<title>Открываем страницу храма</title>
 <link rel="canonical" href="https://taplink.cc/tainstvolubvi">
+<link rel="preconnect" href="https://taplink.cc">
+<link rel="preconnect" href="https://mc.yandex.ru">
 <meta http-equiv="refresh" content="4; url=https://taplink.cc/tainstvolubvi">
-<script src="/go.js"></script>
+<script>
+// Count the visit (with its UTM tags) in Yandex Metrika, then leave for Taplink with the same query.
+(function () {
+  var TARGET = "https://taplink.cc/tainstvolubvi";
+  var COUNTER = 114580701;
+  var url = TARGET + location.search;
+  var left = false;
+  function leave() {
+    if (!left) { left = true; location.replace(url); }
+  }
+  // An ad blocker or a weak signal must not keep the visitor here.
+  setTimeout(leave, 1500);
+  window.ym = window.ym || function () { (window.ym.a = window.ym.a || []).push(arguments); };
+  window.ym.l = Date.now();
+  var tag = document.createElement("script");
+  tag.async = true;
+  tag.src = "https://mc.yandex.ru/metrika/tag.js?id=" + COUNTER;
+  document.head.appendChild(tag);
+  ym(COUNTER, "init", { defer: true, ssr: true, clickmap: false, trackLinks: false, webvisor: false });
+  ym(COUNTER, "hit", location.href, { title: document.title, referer: document.referrer, callback: leave });
+})();
+</script>
+<style>
+  :root { color-scheme: light dark; --bg: #faf7f2; --fg: #3b2f2a; --accent: #a5772f; --track: rgba(165, 119, 47, 0.2); }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1d1a17; --fg: #eee6da; --accent: #d4a85a; --track: rgba(212, 168, 90, 0.2); }
+  }
+  html, body { height: 100%; margin: 0; }
+  body {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px;
+    padding: 0 16px; background: var(--bg); color: var(--fg); text-align: center;
+    font: 22px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  .spinner {
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 5px solid var(--track); border-top-color: var(--accent);
+    animation: spin 0.9s linear infinite;
+  }
+  p { margin: 0; }
+  .fallback { font-size: 18px; opacity: 0; animation: show 0.3s ease 2.5s forwards; }
+  .fallback a { color: var(--accent); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes show { to { opacity: 1; } }
+</style>
 </head>
 <body>
-<p><a href="https://taplink.cc/tainstvolubvi">Перейти на страницу прихода</a></p>
+<div class="spinner" aria-hidden="true"></div>
+<p>Открываем страницу храма…</p>
+<p class="fallback"><a href="https://taplink.cc/tainstvolubvi">Не открылась? Нажмите здесь</a></p>
 </body>
 </html>

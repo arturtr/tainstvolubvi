@@ -2,7 +2,7 @@
 
 Redirect from `tainstvolubvi.ru` to the parish Taplink page. QR codes point to this domain, so the target can change without reprinting them.
 
-- `go.js` holds the target URL and the Yandex Metrika counter id (`0` turns counting off).
-- Each printed QR gets its own page: `stand.html` serves `tainstvolubvi.ru/stand` and tags the visit `utm_source=stand&utm_medium=qr`. A new carrier is a copy of `stand.html` with its own `data-source`.
-- `404.html` catches any other path and redirects without a source tag.
-- Each page also carries a 4-second meta refresh: it moves the visitor on if `go.js` never loads on a weak signal.
+- Each printed QR carries its own UTM tags in the link, e.g. `https://tainstvolubvi.ru/?utm_source=organic&utm_medium=banner&utm_campaign=hram`.
+- The page counts the visit in Yandex Metrika (counter `114580701`), then forwards to Taplink with the same query string. It leaves after the hit is sent, or after 1.5 s if Metrika does not answer.
+- A 4-second meta refresh moves the visitor on if JavaScript fails.
+- `404.html` is a copy of `index.html`: any path on the domain redirects the same way. Edit `index.html`, then `cp index.html 404.html`.
