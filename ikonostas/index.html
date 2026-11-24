@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Иконостас храма мученицы Екатерины Арской</title>
+<meta name="description" content="Иконы для иконостаса храма мученицы Екатерины Арской в Беловодье: какие уже выкуплены, какие ждут жертвователей, как поучаствовать.">
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #faf7f2; --surface: #ffffff; --fg: #3b2f2a; --muted: #7a6e63; --line: #e6ded2;
+    --accent: #a5772f; --done-bg: #eaf4ec; --done-line: #3f8a5a; --done-fg: #2e6b45;
+    --pick-line: #a5772f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #1d1a17; --surface: #26221e; --fg: #eee6da; --muted: #b3a797; --line: #3a342d;
+      --accent: #d4a85a; --done-bg: #1f2e24; --done-line: #5fae7b; --done-fg: #8fd0a5;
+      --pick-line: #d4a85a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--fg);
+    font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 16px 48px; }
+  h1 { font-size: 28px; line-height: 1.2; margin: 0 0 10px; }
+  h2 { font-size: 21px; margin: 0 0 12px; }
+  p { margin: 0 0 10px; }
+  a { color: var(--accent); }
+  .lead { color: var(--muted); max-width: 720px; }
+
+  .progress { margin: 22px 0 28px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .progress strong { font-size: 19px; }
+  .bar { height: 10px; border-radius: 5px; background: var(--line); overflow: hidden; margin: 10px 0 8px; }
+  .bar span { display: block; height: 100%; background: var(--done-line); }
+  .progress .muted { color: var(--muted); font-size: 15px; margin: 0; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 14px; color: var(--muted); margin: 0 0 14px; }
+  .legend i { display: inline-block; width: 14px; height: 14px; border-radius: 3px; vertical-align: -2px; margin-right: 6px; border: 1.5px solid var(--line); background: var(--surface); }
+  .legend i.done { background: var(--done-bg); border-color: var(--done-line); }
+
+  .scheme { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 12px; }
+  .tier + .tier { margin-top: 22px; }
+  .tier h3 { font-size: 14px; font-weight: 600; color: var(--muted); text-align: center; margin: 0 0 10px; }
+  .row { display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-end; gap: 8px; }
+
+  .card {
+    width: 128px; min-height: 92px; padding: 8px 9px; border-radius: 8px; text-align: left;
+    background: var(--surface); border: 1px solid var(--line); color: var(--fg);
+    font: inherit; font-size: 13px; line-height: 1.3; cursor: pointer;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+  .card .num { font-weight: 700; display: flex; justify-content: space-between; gap: 4px; white-space: nowrap; }
+  .card .st { font-weight: 600; font-size: 11px; color: var(--muted); }
+  .card .name { font-weight: 600; font-size: 14px; }
+  .card .price { color: var(--muted); margin-top: auto; }
+  .card.done { background: var(--done-bg); border: 1.5px solid var(--done-line); cursor: default; }
+  .card.done .st { color: var(--done-fg); }
+  .card:not(.done):hover, .card.picked { border: 2px solid var(--pick-line); padding: 7px 8px; }
+  .card.wide { width: 168px; }
+  .card.tall { min-height: 132px; }
+
+  .doors { width: 264px; }
+  .doors h4 { font-size: 12px; font-weight: 600; color: var(--muted); text-align: center; margin: 0 0 6px; }
+  .doors .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .doors .card { width: auto; min-height: 76px; }
+
+  .card .name { overflow-wrap: anywhere; hyphens: auto; }
+  @media (min-width: 900px) {
+    main { max-width: 1320px; }
+    /* Each tier keeps one line, as on the contract scheme: columns shrink instead of wrapping. */
+    .row { display: grid; gap: 8px; align-items: end; justify-content: center; }
+    .row .card, .row .card.wide, .row .doors { width: auto; }
+    .row.arc { grid-template-columns: repeat(6, minmax(0, 150px)); align-items: start; }
+    .row.t-deisis { grid-template-columns: repeat(3, minmax(0, 150px)) minmax(0, 190px) repeat(3, minmax(0, 150px)); }
+    .row.t-feast { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.25fr) repeat(4, minmax(0, 1fr)); justify-content: stretch; }
+    .row.t-local { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 2.1fr) repeat(4, minmax(0, 1fr)); justify-content: stretch; }
+    .row.t-local .name, .row.t-feast .name { font-size: 13px; }
+    .arc .card:nth-child(1), .arc .card:nth-child(6) { margin-top: 44px; }
+    .arc .card:nth-child(2), .arc .card:nth-child(5) { margin-top: 22px; }
+  }
+  @media (max-width: 599px) {
+    .row { justify-content: stretch; }
+    .card, .card.wide { width: calc(50% - 4px); }
+    .doors { width: 100%; order: 10; }
+  }
+
+  .how { margin-top: 30px; padding: 18px 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
+  .how ol { margin: 0; padding-left: 22px; }
+  .how li + li { margin-top: 8px; }
+  .comment { font-weight: 700; white-space: nowrap; }
+  footer { margin-top: 26px; color: var(--muted); font-size: 14px; }
+  noscript p { padding: 12px; border: 1px solid var(--line); border-radius: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Иконостас храма мученицы Екатерины Арской</h1>
+  <p class="lead">Храм в Беловодье строит община, и иконы для иконостаса мы тоже собираем всем миром. Одну икону можно собирать вместе, любой суммой. Имена жертвователей пишут на обороте иконы.</p>
+
+  <section class="progress" aria-label="Ход сбора">
+    <strong id="sum-done">Выкуплено … икон из 36</strong>
+    <div class="bar"><span id="bar"></span></div>
+    <p class="muted" id="sum-wait"></p>
+  </section>
+
+  <h2>Схема иконостаса</h2>
+  <div class="legend">
+    <span><i class="done"></i>выкуплена</span>
+    <span><i></i>ждёт жертвователя — нажмите, чтобы выбрать</span>
+  </div>
+  <noscript><p>Схема собирается скриптом. Список икон и цены можно узнать у настоятеля.</p></noscript>
+  <div class="scheme" id="scheme"></div>
+
+  <section class="how" id="how">
+    <h2>Как поучаствовать</h2>
+    <ol>
+      <li>Выберите икону, которая ждёт жертвователя.</li>
+      <li>Переведите любую сумму. Реквизиты — на <a href="https://taplink.cc/tainstvolubvi">странице храма</a>.</li>
+      <li>В комментарии к переводу напишите: <span class="comment" id="comment">«на иконы, № …»</span></li>
+    </ol>
+  </section>
+
+  <footer>
+    <p>Состояние на <span id="as-of">24 ноября 2026</span> года. Иконы пишет иконописная мастерская по договору с приходом.</p>
+    <p><a href="https://taplink.cc/tainstvolubvi">← Страница храма</a></p>
+  </footer>
+</main>
+
+<script>
+// One line per icon: number → [name, price in rubles, bought]. Update `bought` as icons are closed.
+var ICONS = {
+  1: ["свт. Спиридон Тримифунтский", 127340, true],
+  2: ["Архангел", 134190, true],
+  3: ["мц. Иулия Карфагенская", 127340, true],
+  4: ["Богородица с Младенцем", 127340, true],
+  5: ["Евангелист", 8905, true],
+  6: ["Евангелист", 8905, true],
+  7: ["арх. Гавриил", 13700, true],
+  8: ["Богородица", 13700, true],
+  9: ["Евангелист", 8905, true],
+  10: ["Евангелист", 8905, true],
+  11: ["Христос Пантократор", 127340, true],
+  12: ["мц. Екатерина Арская", 127340, true],
+  13: ["Архангел", 134190, true],
+  14: ["блгв. кн. Олег Брянский", 127340, true],
+  15: ["Благовещение", 69200, false],
+  16: ["Рождество Христово", 69200, false],
+  17: ["Крещение Господне", 69200, false],
+  18: ["Преображение", 69200, false],
+  19: ["Тайная вечеря", 74600, false],
+  20: ["Вход Господень в Иерусалим", 69200, false],
+  21: ["Воскресение Христово", 69200, false],
+  22: ["Сошествие Святого Духа", 69200, false],
+  23: ["Вознесение", 69200, false],
+  24: ["арх. Гавриил", 63530, false],
+  25: ["ап. Пётр", 63530, false],
+  26: ["Богородица", 63530, false],
+  27: ["Христос на престоле", 164500, true],
+  28: ["Иоанн Креститель", 63530, false],
+  29: ["ап. Павел", 63530, false],
+  30: ["арх. Михаил", 63530, false],
+  31: ["прор. Даниил", 26030, false],
+  32: ["прор. Илия", 26030, false],
+  33: ["царь Соломон", 26030, false],
+  34: ["царь Давид", 26030, true],
+  35: ["прор. Иона", 26030, false],
+  36: ["пророк (имя уточняется)", 26030, false]
+};
+
+var TIERS = [
+  { title: "Пророческий ряд", nums: [31, 32, 33, 34, 35, 36], cls: "arc" },
+  { title: "Деисусный чин", nums: [24, 25, 26, 27, 28, 29, 30], wide: [27], cls: "t-deisis" },
+  { title: "Праздничный ряд", nums: [15, 16, 17, 18, 19, 20, 21, 22, 23], wide: [19], cls: "t-feast" },
+  { title: "Местный ряд и Царские врата", nums: [1, 2, 3, 4, "doors", 11, 12, 13, 14], tall: true, cls: "t-local" }
+];
+
+function rub(n) { return n.toLocaleString("ru-RU").replace(/ /g, " ") + " ₽"; }
+
+function card(n, extra) {
+  var d = ICONS[n], b = document.createElement("button");
+  b.type = "button";
+  b.className = "card" + (d[2] ? " done" : "") + (extra || "");
+  b.dataset.num = n;
+  b.innerHTML = '<span class="num">№ ' + n + '<span class="st">' + (d[2] ? "выкуплена" : "ждёт") + '</span></span>' +
+    '<span class="name"></span><span class="price">' + rub(d[1]) + "</span>";
+  b.querySelector(".name").textContent = d[0];
+  if (d[2]) { b.disabled = true; b.setAttribute("aria-label", "№ " + n + ", " + d[0] + ", выкуплена"); }
+  else { b.setAttribute("aria-label", "№ " + n + ", " + d[0] + ", " + rub(d[1]) + ", ждёт жертвователя"); }
+  return b;
+}
+
+var scheme = document.getElementById("scheme");
+TIERS.forEach(function (t) {
+  var tier = document.createElement("section"), h = document.createElement("h3"), row = document.createElement("div");
+  tier.className = "tier"; h.textContent = t.title; row.className = "row" + (t.cls ? " " + t.cls : "");
+  t.nums.forEach(function (n) {
+    if (n === "doors") {
+      var doors = document.createElement("div"), dh = document.createElement("h4"), grid = document.createElement("div");
+      doors.className = "doors"; dh.textContent = "Царские врата: евангелисты и Благовещение"; grid.className = "grid";
+      [5, 6, 7, 8, 9, 10].forEach(function (k) { grid.appendChild(card(k)); });
+      doors.appendChild(dh); doors.appendChild(grid); row.appendChild(doors);
+      return;
+    }
+    var extra = (t.wide && t.wide.indexOf(n) >= 0 ? " wide" : "") + (t.tall ? " tall" : "");
+    row.appendChild(card(n, extra));
+  });
+  tier.appendChild(h); tier.appendChild(row); scheme.appendChild(tier);
+});
+
+var total = 0, done = 0, doneN = 0, waitN = 0;
+Object.keys(ICONS).forEach(function (k) {
+  var d = ICONS[k]; total += d[1];
+  if (d[2]) { done += d[1]; doneN++; } else { waitN++; }
+});
+document.getElementById("sum-done").textContent = "Выкуплено " + doneN + " икон из " + (doneN + waitN);
+document.getElementById("bar").style.width = Math.round(done / total * 100) + "%";
+document.getElementById("sum-wait").textContent = "Ждут жертвователей " + waitN + " икон на " + rub(total - done) + " из " + rub(total) + ".";
+
+scheme.addEventListener("click", function (e) {
+  var b = e.target.closest(".card");
+  if (!b || b.disabled) return;
+  document.querySelectorAll(".card.picked").forEach(function (x) { x.classList.remove("picked"); });
+  b.classList.add("picked");
+  document.getElementById("comment").textContent = "«на иконы, № " + b.dataset.num + "»";
+  document.getElementById("how").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+</script>
+</body>
+</html>
